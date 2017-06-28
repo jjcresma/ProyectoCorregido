@@ -1,0 +1,47 @@
+<html>
+<body>
+
+<h2 class="page-header">Avances en computacion a  <%= title %></h2>
+ <h3 align="left">Buscar por Fechas</h3>
+<div align='center'>
+      <form method="post" action="buscar" >
+      <input type="date" name="fechasBuscar" id="fechasBuscar" />
+      <%
+        for(var i=0; i< reclamos.length; i++){
+        var c  = 0;
+        for(var j = 0; j< i; j++){
+        if(reclamos[j].fecha == reclamos[i].fecha){
+        c++;
+        }
+      }
+       }
+        %>
+      <input type="submit" name ="envio" class="btn btn-primary" value="Buscar"/>
+      </form>
+
+    <p><%= fechasBuscar%></p>
+
+    
+ 
+  <table class="table table-hover">
+      <tr class="active">
+
+   <tr>
+       <td>id</td>
+       <td>Tipo Reclamo</td>
+       <td>Observacion</td>
+       <td>Fecha</td>
+    </tr>
+<% var i; for(i=0; i< reclamos.length; i++) {
+if(reclamo[i].fecha == fechasBuscar)
+ {%>
+   <tr>
+       <td><%= i %></td>
+       <td><%= reclamos[i].tipoReclamo %></td>
+       <td><%= reclamos[i].observacion %></td>
+       <td><%= reclamos[i].fecha %></td>
+    </tr>
+<% }} %>
+</table>
+</div>
+</body>
